@@ -200,7 +200,15 @@
                 <div id="test">
                     king
                 </div>
-                  <script>
+
+              </div>
+                 <hr class="featurette-divider">
+              <div id="develope">
+                    <img id="myimg" src="/static/img/smile.jpg" style="width: 300px;">
+
+              </div>
+
+                    <script>
                       $(function () {
                           var url = 'latex/';
                           $("#tex_src").change(function () {
@@ -209,19 +217,17 @@
                                   data:{
                                       test:document.getElementById("tex_src").value                                  },
                                   url:url,
-                                  dataType:'json',
+                                  dataType:'json'
+                              }).done($(function call_ba() {
+                                          d = new Date();
+                                          $("#myimg").attr("src", "/static/img/formu.svg?" + d.getTime());
+                                      })
+                              );
 
-                              });
                           })
                       });
-                      function success() { alert("Successfully saved.") };
 
                   </script>
-              </div>
-                 <hr class="featurette-divider">
-              <div id="develope">
-                    <img src="/static/img/smile.jpg">
-              </div>
 
 
              </div>
