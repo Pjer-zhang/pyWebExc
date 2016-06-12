@@ -17,11 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from django.conf.urls import *
-from pjapp.views import Hi
+from pjapp.views import *
 import settings
 
 urlpatterns = [
     url(r'^$',include('pjapp.urls') ),
+    url(r'^Hi/$',Hi),#for test
+    url(r'^latex/',latex_func),
     url(r'^staticfiles/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.STATICFILES_DIRS, 'show_indexes': True}),
 ]

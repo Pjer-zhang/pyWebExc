@@ -13,10 +13,6 @@
 
       <link rel="stylesheet" href="/static/css/style.css">
 
-    
-
-
-
 
 <style>
 
@@ -144,16 +140,8 @@
     <!-- Fav and touch icons -->
 
 
-
-
-
-
-
-
-
-
-
-
+       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+       <script src='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js'></script>
 
 
 
@@ -208,11 +196,31 @@
                   RealTime Latex
               </h1>
                   <p>Input compiling</p>
-                <input text="\dfrac{a}{b}" class="form-control">
+                <input id="tex_src" text="\dfrac{a}{b}" class="form-control">
+                <div id="test">
+                    king
+                </div>
+                  <script>
+                      $(function () {
+                          var url = 'latex/';
+                          $("#tex_src").change(function () {
+                              $.ajax({
+                                  type:'POST',
+                                  data:{
+                                      test:document.getElementById("tex_src").value                                  },
+                                  url:url,
+                                  dataType:'json',
+
+                              });
+                          })
+                      });
+                      function success() { alert("Successfully saved.") };
+
+                  </script>
               </div>
                  <hr class="featurette-divider">
               <div id="develope">
-
+                    <img src="/static/img/smile.jpg">
               </div>
 
 
@@ -247,10 +255,7 @@
     </div><!--container-fuild-->
 
 
-       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js'></script>
-
-        <script src="../static/js/index.js"></script>
+       <script src="/static/js/index.js"></script>
 
     
     
