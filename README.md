@@ -1,4 +1,4 @@
-# Blog project with Django Framework
+# Latex-tool project with Django Framework
 
 
 ## Views.py
@@ -10,5 +10,11 @@
 ## Models.py
 数据结构定义
 
-## Page location
-[主站位置](https://pjer.applinzi.com)
+## used modules:
+### Python：
+- django: 主框架
+- matplotlib: 渲染latex字体
+- cStringIO: 操作buffer
+- codec: 编码转换
+### JS
+- Ajax：动态组件（不更新页面的前提下更新组件）
