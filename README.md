@@ -17,5 +17,5 @@
 - cStringIO: 操作buffer
 - codec: 编码转换
 
-### JS
+### JS:
 - Ajax：动态组件（不更新页面的前提下更新组件）
