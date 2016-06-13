@@ -207,22 +207,33 @@
               </div>
 
                     <script>
+                        function call_ba() {
+                                          d = new Date();
+                                          $("#myimg").attr("src", "/static/img/formu.svg?" + d.getTime());
+                                      }
                       $(function () {
                           var url = 'latex/';
-                          $("#tex_src").change(function () {
+                          $("#tex_src").on("change", (function () {
                               $.ajax({
-                                  type:'POST',
+                                  type:'GET',
                                   data:{
                                       test:document.getElementById("tex_src").value                                  },
                                   url:url,
-                                  dataType:'json'
-                              }).done($(function call_ba() {
+                                  dataType:'json',
+                                  async:true,
+                                  success: call_ba
+                              }).always((function call_ba1() {
                                           d = new Date();
                                           $("#myimg").attr("src", "/static/img/formu.svg?" + d.getTime());
-                                      })
-                              );
+                                          return false;
+                              })
 
-                          })
+                              );
+                                      return false;
+
+                          }
+
+                          ))
                       });
 
                   </script>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import matplotlib.pyplot as plt
 from hellopweb.settings import  BASE_DIR
@@ -13,17 +13,17 @@ def Hi(request):
 
 @csrf_exempt
 def latex_func(request):
-    if request.method == "POST":
-        r_html = request.POST.get('test','')
+    if request.method == "GET":
+        r_html = request.GET.get('test','')
 
         im_byte = render_latex(r_html)
         im_path = os.path.join(BASE_DIR, 'static', 'img', 'formu.svg')
         with open(im_path, 'wb') as image_file:
             IMF = File(image_file)
             IMF.write(im_byte)
-            IMF.close()
+            image_file.close()
 
-        return HttpResponse(r_html)
+        return redirect(BASE_DIR)
 
 @csrf_exempt
 def render_latex(formula, font_size=10, dpi=80, format_='svg'):
