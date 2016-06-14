@@ -197,7 +197,7 @@
               </h1>
                   <p>Input compiling</p>
                 <input id="tex_src" text="\dfrac{a}{b}" class="form-control" spellcheck="false">
-
+<!-- input id="button" class="btn"  onclick="conf"  type="button" value="confirm" -->
 
               </div>
                  <hr class="featurette-divider">
@@ -207,13 +207,40 @@
               </div>
 
                     <script>
+
+                        function conf(event) {
+                            event.preventBubble();
+
+                            $(function use_again_1() {
+                              $.ajax({
+                                  type:'GET',
+                                  data:{
+                                      test:document.getElementById("tex_src").value                                  },
+                                  url:url,
+                                  dataType:'json',
+                                  async:true,
+                                  success: call_ba
+                              }).always((function call_ba1() {
+                                          d = new Date();
+                                          $("#myimg").attr("src", "/static/img/formu.svg?" + d.getTime());
+                                          return false;
+                              })
+
+                              );
+                                      return false;
+
+                          }
+
+                          )
+                        }
+
                         function call_ba() {
                                           d = new Date();
                                           $("#myimg").attr("src", "/static/img/formu.svg?" + d.getTime());
                                       }
                       $(function () {
                           var url = 'latex/';
-                          $("#tex_src").on("change", (function () {
+                          $("#tex_src").on("change", (function use_again() {
                               $.ajax({
                                   type:'GET',
                                   data:{

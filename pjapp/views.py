@@ -23,7 +23,7 @@ def latex_func(request):
             IMF.write(im_byte)
             image_file.close()
 
-        return redirect(BASE_DIR)
+        return HttpResponse("success")
 
 @csrf_exempt
 def render_latex(formula, font_size=10, dpi=80, format_='svg'):
